@@ -4,11 +4,36 @@
     align-items: center;
     justify-content: flex-end;
 }
+
+:root {
+    --bg-primary: rgb(216, 226, 241);
+    --bg-secondary: #fff;
+    --text-primary: #222;
+    --text-secondary: #000;
+    --nav-bg: #222;
+    --nav-text: #fff;
+    --section-bg: #f2f2f2;
+    --border-color: #222;
+    --accent-color: #f39c12;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #fff;
+    --nav-bg: #0d0d0d;
+    --nav-text: #e0e0e0;
+    --section-bg: #1f1f1f;
+    --border-color: #444;
+    --accent-color: #ff9800;
+}
+
 .carro-item .nomecarro {
     font-size: 20px;
     font-weight: bold;
     margin-top: 10px;
-    color: #222;
+    color: var(--text-primary);
     text-align: center;
 }
 
@@ -46,71 +71,60 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
 }
 .topo-bg {
-        -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
-        mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
     color: white;
     font-size: 30px;
     text-align: center;
     background-image: url('fundo-site.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 350px;
-    padding-bottom: 60px;
-    padding-top: 100px;
-}
-body{
-    background-color: rgb(216, 226, 241);
-    background-size: cover;
-    background-position: center;
+    min-height: 180px;
+    padding-bottom: 10px;
+    padding-top: 50px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
 
-button{
-    position:flex;
-    top:500px;
-    left:500px;
-    right:500px;
-    bottom:500px;
-}
-nav{
-    background: #222;
-    padding: 0px 0;
-    margin: 0;
-    display: block;
-    border-radius: 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
+.topo-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
     left: 0;
-    text-align: center;
-    z-index: 1000;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent 0%, var(--bg-secondary) 100%);
+    pointer-events: none;
+    z-index: 2;
 }
-nav ul{
-    list-style: none;
-    display: flex;
-    justify-content: center;
+
+.topo-bg h1,
+.topo-bg h2,
+.topo-bg p {
+    position: relative;
+    z-index: 3;
 }
-nav ul li{
-    margin:15px;
-}
-nav ul li a{
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-nav ul li a:hover{
-    color: #f39c12;
+
+body {
+    background-color: var(--bg-primary);
+    background-size: cover;
+    background-position: center;
+    padding-top: 70px;
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
 }
 #home{
-    color: rgb(0, 0, 0);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
     text-align: center;
-    height: 30vh;
+    min-height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    place-content: 20px;
+    padding: 20px 0;
 }
 #home p{
     font-size: 20px;
@@ -119,6 +133,8 @@ nav ul li a:hover{
 section{
     padding:80px 20px;
     text-align: center;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 form{
     display: flex;
@@ -130,27 +146,32 @@ form label{
     text-align: left;
     margin-top: 10px;
     font-weight:bold;
+    color: var(--text-primary);
 }
 form input, form textarea{
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
-
+    background: var(--bg-primary);
+    color: var(--text-primary);
 }
 form button{
-    background: #222;
-    color: white;
+    background: var(--nav-bg);
+    color: var(--nav-text);
     padding: 10px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 form button:hover{
-    background: #f39c12;
+    background: var(--accent-color);
 }
 footer{
-    background: #222;
-    color: white;
+    background: var(--nav-bg);
+    color: var(--nav-text);
     text-align: center;
     padding: 20px;
+    border-top: 4px solid var(--accent-color);
+    transition: background 0.3s, color 0.3s;
 }
 .container{
     background-image: url('fundo-site.jpg');
@@ -172,7 +193,7 @@ footer{
 .nomecarro{
     font-size: 24px;
     font-weight: bold;
-    
+    color: var(--text-primary);
     justify-content: baseline;
     margin-top: 10px;
 }
@@ -183,27 +204,28 @@ table {
 }
 
 th, td {
-  border: 1px solid #222;
+  border: 1px solid var(--border-color);
   padding: 10px;
   text-align: center;
+  color: var(--text-primary);
 }
 
 th {
-  background: #222;
-  color: #fff;
+  background: var(--nav-bg);
+  color: var(--nav-text);
 }
 
 tr:nth-child(even) {
-  background: #f2f2f2;
+  background: var(--section-bg);
 }
 footer {
-  background: linear-gradient(90deg, #222 60%, #444 100%);
-  color: #fff;
+  background: linear-gradient(90deg, var(--nav-bg) 60%, #1a1a1a 100%);
+  color: var(--nav-text);
   text-align: center;
   padding: 32px 10px 16px 10px;
   font-size: 18px;
-  border-top: 4px solid #f39c12;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.10);
+  border-top: 4px solid var(--accent-color);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.20);
 }
 
 footer ul {
@@ -216,14 +238,14 @@ footer ul {
 }
 
 footer ul li a {
-  color: #f39c12;
+  color: var(--accent-color);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.2s;
 }
 
 footer ul li a:hover {
-  color: #fff;
+  color: var(--nav-text);
   text-decoration: underline;
 }
 .carro-img:hover,
@@ -232,4 +254,45 @@ footer ul li a:hover {
   transform: scale(1.08);
   box-shadow: 0 4px 16px rgba(0,0,0,0.18);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#darkModeBtn {
+    position: fixed;
+    top: 75px;
+    right: 20px;
+    z-index: 999;
+    background: var(--nav-bg);
+    color: var(--nav-text);
+    border: 2px solid var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+#darkModeBtn:hover {
+    background: var(--accent-color);
+    color: var(--nav-bg);
+}
+
+/* Navbar Dark Mode */
+.navbar {
+    background: var(--nav-bg) !important;
+    transition: background 0.3s;
+}
+
+.navbar-brand {
+    color: var(--nav-text) !important;
+}
+
+.nav-link {
+    color: var(--nav-text) !important;
+    transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-color) !important;
 }
