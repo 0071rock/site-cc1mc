@@ -6,21 +6,33 @@
     <title>concessionaria wolksvai</title>
     <link rel="stylesheet"
     href="cl (1).css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-        <div class="topo-bg">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Wolksvai</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Nossos veículos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#agenda-de-visita">Funcionamento</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#agenda-de-visita">Visite-nos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <button id="darkModeBtn" onclick="darkModeToggle()">🌙 Dark</button>
+    <div class="topo-bg">
             <br>
             <h1>wolkvai</h1>
             <h2>loja automotiva</h2>
             <p>o seu futuro se faz aqui</p>
-            <nav>
-                 <ul>
-                     <li><a href="#home">nossos veiculos</a></li>
-                     <li><a href="#serviços"> funcionamento</a></li>
-                     <li><a href="#agenda-de-visita">visite-nos</a></li>
-                     <li><a href="#contato">contato</a></li>
-                 </ul>
-            </nav>
         </div>
         <section id="home">
                 <br>
@@ -144,8 +156,6 @@
          </form>
          <p>contate nossa equipe e tire duvidas</p>
         </section>
-     <a href="https://youtube.com/shorts/K9WUfDFw3Cg?si=id8LsOAzRH1z_etq" method="get" target="_blank"></a>
-     </form>
      <footer>
         <p>siga nos nas redes socias</p>
         <ul>
@@ -155,6 +165,7 @@
         </ul>
         <p>&copy;2025 empresa tech es - todos os direitos reservados</p>
     </footer>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="cl.js"></script>
 </body>
 </html>
